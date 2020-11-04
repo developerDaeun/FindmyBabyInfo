@@ -113,6 +113,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"/> <!--나머지 빈공간-->
+        android:layout_weight="1"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/findId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="아이디 찾기"
+            android:textSize="20sp"
+            android:background="#00000000"/>
+        <Button
+            android:id="@+id/findPw"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="비밀번호 찾기"
+            android:textSize="20sp"
+            android:background="#00000000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></LinearLayout>   <!--빈공간-->
 
 </LinearLayout>

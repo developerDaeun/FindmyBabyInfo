@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity {
 
     private EditText id, pw;
-    private Button login, join;
+    private Button login, join, findId, findPw;
     private InputMethodManager imm;
     private String strID, strPW;
 
@@ -56,6 +56,22 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), FindId.class);
+                startActivity(intent);
+            }
+        });
+
+        findPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), FindPw.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void findById(){
@@ -63,6 +79,8 @@ public class Login extends AppCompatActivity {
         pw=(EditText)findViewById(R.id.pw);
         login=(Button)findViewById(R.id.login);
         join=(Button)findViewById(R.id.join);
+        findId=(Button)findViewById(R.id.findId);
+        findPw=(Button)findViewById(R.id.findPw);
         imm=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
     }
 

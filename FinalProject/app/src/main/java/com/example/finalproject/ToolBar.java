@@ -51,6 +51,7 @@ public class ToolBar extends AppCompatActivity {
             case R.id.mypage:
                 Intent intent=new Intent(getApplicationContext(), Identification.class);
                 intent.putExtra("id", logId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
                 return true;
             case R.id.logout:

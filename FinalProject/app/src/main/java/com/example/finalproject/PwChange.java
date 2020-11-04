@@ -1,30 +1,23 @@
 package com.example.finalproject;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+public class PwChange extends Activity {
 
-public class Identification extends Activity {
-
-    private EditText pw;
-    private Button ok, cancel;
     private String id;
-    private String TAG_NAME="name", TAG_NUM="num";
+    private EditText pw, pwCheck;
+    private Button ok, cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +25,10 @@ public class Identification extends Activity {
         id=getIntent.getStringExtra("id");
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_identification);
+        setContentView(R.layout.activity_pw_change);
 
         findById();
 
-        //취소 버튼을 누른 경우 동작
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,13 +40,20 @@ public class Identification extends Activity {
             @Override
             public void onClick(View v) {
                 String strPw=pw.getText().toString();
-                if(strPw.equals("")){ //비밀번호를 입력하지 않은 경우
-                    Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요",Toast.LENGTH_LONG).show();
+                String strPwCheck=pwCheck.getText().toString();
+                if(strPw.equals("")){
+                    Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요",Toast.LENGTH_SHORT).show();
+                }
+                else if(strPwCheck.equals("")){
+                    Toast.makeText(getApplicationContext(),"비밀번호 확인을 입력하세요",Toast.LENGTH_SHORT).show();
+                }
+                else if(!strPw.equals(strPwCheck)){
+                    Toast.makeText(getApplicationContext(),"비밀번호가 틀렸습니다",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     String data="id="+id+"&pw="+strPw;
                     AndroidToPhp atp=new AndroidToPhp();
-                    atp.execute("/Identification.php", data);
+                    atp.execute("/PwChange.php", data);
                 }
             }
         });
@@ -62,7 +61,8 @@ public class Identification extends Activity {
 
     private void findById(){
         pw=(EditText)findViewById(R.id.pw);
-        ok=(Button) findViewById(R.id.ok);
+        pwCheck=(EditText)findViewById(R.id.pwCheck);
+        ok=(Button)findViewById(R.id.ok);
         cancel=(Button)findViewById(R.id.cancel);
     }
 
@@ -83,18 +83,19 @@ public class Identification extends Activity {
 
     class AndroidToPhp extends AsyncTask<String, Void, String> { //<doInBackground 매개변수 자료형, onProgressUpdate 자료형, onPostExecute 자료형>
 
-        ProgressDialog progressDialog=new ProgressDialog(Identification.this);
+        ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog=ProgressDialog.show(Identification.this,"확인 중입니다.",null,true,true);
+            progressDialog=ProgressDialog.show(PwChange.this,"처리 중입니다.",null,true,true);
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             pw.setText("");
+            pwCheck.setText("");
             progressDialog.dismiss();
         }
 
@@ -102,31 +103,32 @@ public class Identification extends Activity {
         protected String doInBackground(String... strings) {
             RequestHandler rh=new RequestHandler();
             String result=rh.sendPostRequest(strings[0], strings[1]);
-            if(result.equals("NOT_FOUND")){ //비밀번호가 틀린 경우
+            if(result.equals("RESULT_OK")){
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //System.out.println("존재함");
-                        Toast.makeText(getApplicationContext(),"비밀번호가 일치하지 않습니다",Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder dlg=new AlertDialog.Builder(PwChange.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
+                        dlg.setTitle("변경 완료");
+                        dlg.setMessage("비밀번호 변경이 완료되었습니다");
+                        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent=new Intent(getApplicationContext(), Login.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                        });
+                        dlg.show();
                     }
                 });
             }
             else{
-                try{
-                    JSONArray jsonArray=new JSONArray(result);
-                    JSONObject jsonObject=jsonArray.getJSONObject(0);
-                    String name=jsonObject.getString(TAG_NAME);
-                    String num=jsonObject.getString(TAG_NUM);
-
-                    Intent intent=new Intent(getApplicationContext(), MyPage.class);
-                    intent.putExtra("id", id);
-                    intent.putExtra("name", name);
-                    intent.putExtra("num", num);
-                    startActivity(intent);
-                }catch(JSONException e){
-                    e.printStackTrace();
-                    Log.e("json 오류",e.toString());
-                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),"실패",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
             return result;
         }

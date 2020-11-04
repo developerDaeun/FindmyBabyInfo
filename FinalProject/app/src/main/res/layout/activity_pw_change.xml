@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="320dp"
     android:layout_height="160dp"
-    android:orientation="vertical"
-    android:weightSum="4"
     android:background="@android:color/background_light"
-    tools:context=".Identification">
+    android:orientation="vertical"
+    tools:context=".PwChange">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -20,19 +19,18 @@
             android:background="@android:color/background_light"
             android:gravity="start|center_horizontal|center_vertical"
             android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:text="본인확인"
+            android:text="비밀번호 변경"
             android:textColor="#242323" />
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:background="@color/colorAccent"/>
-    </LinearLayout>     <!--타이틀-->
+    </LinearLayout> <!--상단바-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
         android:orientation="vertical">
 
         <EditText
@@ -40,7 +38,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="비밀번호 입력"
+            android:hint="새 비밀번호 입력"
+            android:focusedByDefault="true"
+            android:textColor="@android:color/darker_gray"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/pwCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="비밀번호 확인"
             android:focusedByDefault="true"
             android:textColor="@android:color/darker_gray"
             android:inputType="textPassword"/>
@@ -61,8 +69,7 @@
                 android:layout_height="35dp"
                 android:text="확인"
                 android:textSize="10dp" />
-        </LinearLayout>
-
+        </LinearLayout> <!--버튼-->
     </LinearLayout>
 
 </LinearLayout>
