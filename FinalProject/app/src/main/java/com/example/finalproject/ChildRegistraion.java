@@ -52,7 +52,7 @@ public class ChildRegistraion extends ToolBar {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private RecyclerAdapter adapter;
-    private ArrayList<RecyclerItem> dataList;   //RecyclerView에서 표시할 내용
+    private ArrayList<String> dataList;   //RecyclerView에서 표시할 내용
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +127,7 @@ public class ChildRegistraion extends ToolBar {
                                     jsonObject.put("age", age);
                                     ArrayList<String> path=new ArrayList<>();
                                     for(int i=0;i<dataList.size();i++){
-                                        path.add(dataList.get(i).getImagePath());
+                                        path.add(dataList.get(i));
                                     }
                                     jsonObject.put("path", path);
                                     String data=jsonObject.toString();
@@ -221,9 +221,7 @@ public class ChildRegistraion extends ToolBar {
                                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);   //uri->bitmap
                                 String imageName = getRealPathFromURI(uri);
                                 String imagePath=saveToInternalStorage(bitmap, imageName);
-
-                                RecyclerItem ri=new RecyclerItem(uri, imagePath+"/"+imageName+".jpg");
-                                dataList.add(ri);
+                                dataList.add(imagePath+"/"+imageName+".jpg");
                             }catch (Exception e){
                                 e.printStackTrace();
                                 Log.e("bitmap 변환 오류",e.toString());

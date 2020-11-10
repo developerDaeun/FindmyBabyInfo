@@ -2,6 +2,8 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -18,14 +20,22 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class ChildInfo extends ToolBar {
 
-    private String cno, id, name, gender, age;
+    private String cno, id, name, gender, age, path;
+    private String[] pathArr;
     private EditText childName, childAge;
     private RadioGroup radioGroup;
     private RadioButton boy, girl;
     private Button delete, update;
     private InputMethodManager imm;
+
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+    private RecyclerAdapter adapter;
+    private ArrayList<String> dataList;   //RecyclerView에서 표시할 내용
 
     private String flag="delete";
 
@@ -37,12 +47,28 @@ public class ChildInfo extends ToolBar {
         gender=get_Intent.getStringExtra("gender");
         age=get_Intent.getStringExtra("age");
         cno=get_Intent.getStringExtra("cno");
+        path=get_Intent.getStringExtra("path");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child_info);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         findById();
+
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL); //Recyclerview를 가로로 설정
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+
+        //path를 dataList에 저장
+        path=path.replaceAll("\\\\","");    //\ 문자 제거
+        path=path.substring(2, path.length()-2);
+        pathArr=path.split("\",\"");    //"," 를 기준으로 문자열 split
+
+        for(int i=0;i<pathArr.length;i++){
+            System.out.println("pathArr="+pathArr[i]);
+            dataList.add(pathArr[i]);
+        }
+        adapter.notifyDataSetChanged();
 
         //기존에 등록된 정보 표시
         childName.setText(name);
@@ -113,6 +139,10 @@ public class ChildInfo extends ToolBar {
         delete=(Button)findViewById(R.id.delete);
         update=(Button)findViewById(R.id.update);
         imm=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
+        linearLayoutManager=new LinearLayoutManager(this);
+        dataList=new ArrayList<>();
+        adapter=new RecyclerAdapter(dataList);
     }
 
     //배경 클릭 시 키보드 내리기

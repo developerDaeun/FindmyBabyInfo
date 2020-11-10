@@ -35,7 +35,7 @@ public class ChildList extends ToolBar {
 
     private JSONObject jsonObject;
     private JSONArray jsonArray;
-    private String TAG_JSON="childInfo", TAG_NAME="name",TAG_GENDER="gender", TAG_AGE="age",TAG_CNO="cno";
+    private String TAG_JSON="childInfo", TAG_NAME="name",TAG_GENDER="gender", TAG_AGE="age",TAG_CNO="cno", TAG_PATH="path";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +67,7 @@ public class ChildList extends ToolBar {
                     String gender=item.getString(TAG_GENDER);
                     String age=item.getString(TAG_AGE);
                     String cno=item.getString(TAG_CNO);
+                    String path=item.getString(TAG_PATH);
 
                     Intent intent=new Intent(getApplicationContext(),ChildInfo.class);
                     intent.putExtra("id", id);
@@ -74,6 +75,7 @@ public class ChildList extends ToolBar {
                     intent.putExtra("gender", gender);
                     intent.putExtra("age", age);
                     intent.putExtra("cno", cno);
+                    intent.putExtra("path", path);
                     startActivity(intent);
                 }catch(JSONException e){
                     e.printStackTrace();
