@@ -87,6 +87,12 @@ public class ChildList extends ToolBar {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        list.clear();
         String data="id="+id;
         AndroidToPhp atp=new AndroidToPhp();
         atp.execute("/ChildList.php",data);
@@ -110,6 +116,17 @@ public class ChildList extends ToolBar {
                 String name=item.getString(TAG_NAME);
                 list.add(name);
             }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            }).start();
         }catch(JSONException e){
             e.printStackTrace();
             Log.e("json 오류", e.toString());
