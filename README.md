@@ -13,6 +13,12 @@ Download yolov4.weights file: https://drive.google.com/open?id=1cewMfusmPjYWbrnu
 ### Performance
 <p align="center"><img src="data/performance.png" width="640"\></p>
 
+### Custom
+In tensorflow-yolov4-tflite-master\data\classes\coco.names,
+```bash
+## Change custom names
+```
+
 ### Demo
 
 ```bash
@@ -39,7 +45,7 @@ If you want to run yolov3 or yolov3-tiny change ``--model yolov3`` in command
 ##### Yolov4 tflite int8
 <p align="center"><img src="result-int8.png" width="640"\></p>
 
-### Convert to tflite
+### Convert to tflite (Android)
 
 ```bash
 # Save tf model for tflite converting
@@ -58,7 +64,7 @@ python convert_tflite.py --weights ./checkpoints/yolov4-416 --output ./checkpoin
 python detect.py --weights ./checkpoints/yolov4-416.tflite --size 416 --model yolov4 --image ./data/kite.jpg --framework tflite
 ```
 Yolov4 and Yolov4-tiny int8 quantization have some issues. I will try to fix that. You can try Yolov3 and Yolov3-tiny int8 quantization 
-### Convert to TensorRT
+### Convert to TensorRT (iOS)
 ```bash# yolov3
 python save_model.py --weights ./data/yolov3.weights --output ./checkpoints/yolov3.tf --input_size 416 --model yolov3
 python convert_trt.py --weights ./checkpoints/yolov3.tf --quantize_mode float16 --output ./checkpoints/yolov3-trt-fp16-416
@@ -71,6 +77,51 @@ python convert_trt.py --weights ./checkpoints/yolov3-tiny.tf --quantize_mode flo
 python save_model.py --weights ./data/yolov4.weights --output ./checkpoints/yolov4.tf --input_size 416 --model yolov4
 python convert_trt.py --weights ./checkpoints/yolov4.tf --quantize_mode float16 --output ./checkpoints/yolov4-trt-fp16-416
 ```
+### Demo test on Android
+```bash
+Bundle Sink OK
+```
+
+If exist 'import package --' problems,
+```bash
+File > Invalidate Caches/Restart
+```
+
+In YoloV4Classifier.java, 
+* Is not YOLO-tiny models
+```bash
+isTiny = false;
+```
+* Is YOLO-tiny models
+```bash
+isTiny = true;
+```
+Run the App
+ 
+### Test custom models on Android
+In YoloV4Classifier.java, 
+* Is not YOLO-tiny models
+```bash
+isTiny = false;
+```
+* Is YOLO-tiny models
+```bash
+isTiny = true;
+```
+
+In android/app/src/main/assets/,
+```bash
+## Insert your custom .tflite
+## Create your custom names file   ex)YourCustom.txt
+```
+
+Click Edit > Find > Find in Path...
+Change All
+```bash
+TF_OD_API_MODEL_FILE = "YourCustom.tflite"
+TF_OD_API_LABELS_FILE = "YourCustom.txt"
+```
+Run the App
 
 ### Evaluate on COCO 2017 Dataset
 ```bash
