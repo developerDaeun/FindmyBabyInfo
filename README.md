@@ -143,6 +143,10 @@ bbox location: recognition.location
 confidence: recognition.detectionConfidence
 ```
 
+### Android
+start bitnami -> cmd 창에서 mysql -u root -p -> use mydb->비밀번호 입력 : 민지300
+
+
 ### Evaluate on COCO 2017 Dataset
 ```bash
 # run script in /script/get_coco_dataset_2017.sh to download COCO 2017 Dataset
