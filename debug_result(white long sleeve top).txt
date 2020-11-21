@@ -1,0 +1,391 @@
+
+11/20 17:45:41: Launching 'app' on samsung SM-A530N.
+App restart successful without requiring a re-install.
+$ adb shell am start -n "org.tensorflow.lite.examples.detection/org.tensorflow.lite.examples.detection.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -D
+Waiting for application to come online: org.tensorflow.lite.examples.detection.test | org.tensorflow.lite.examples.detection
+Waiting for application to come online: org.tensorflow.lite.examples.detection.test | org.tensorflow.lite.examples.detection
+Connected to process 19723 on device 'samsung-sm_a530n-5200ead2f46cc4ed'.
+Capturing and displaying logcat messages from application. This behavior can be disabled in the "Logcat output" section of the "Debugger" settings page.
+W/ActivityThread: Application org.tensorflow.lite.examples.detection is waiting for the debugger on port 8100...
+I/System.out: Sending WAIT chunk
+Waiting for application to come online: org.tensorflow.lite.examples.detection.test | org.tensorflow.lite.examples.detection
+Connecting to org.tensorflow.lite.examples.detection
+Connected to the target VM, address: 'localhost:4071', transport: 'socket'
+Capturing and displaying logcat messages from application. This behavior can be disabled in the "Logcat output" section of the "Debugger" settings page.
+E/Zygote: isWhitelistProcess - Process is Whitelisted
+E/Zygote: accessInfo : 1
+I/mples.detectio: Late-enabling -Xcheck:jni
+I/mples.detectio: report jit thread pid = 19728
+W/ActivityThread: Application org.tensorflow.lite.examples.detection is waiting for the debugger on port 8100...
+I/System.out: Sending WAIT chunk
+I/System.out: Debugger has connected
+    waiting for debugger to settle...
+I/chatty: uid=10620(org.tensorflow.lite.examples.detection) identical 2 lines
+I/System.out: waiting for debugger to settle...
+I/System.out: waiting for debugger to settle...
+I/System.out: waiting for debugger to settle...
+I/System.out: waiting for debugger to settle...
+I/System.out: debugger has settled (1377)
+W/mples.detectio: Accessing hidden method Landroid/graphics/drawable/Drawable;->getOpticalInsets()Landroid/graphics/Insets; (light greylist, linking)
+    Accessing hidden field Landroid/graphics/Insets;->left:I (light greylist, linking)
+    Accessing hidden field Landroid/graphics/Insets;->right:I (light greylist, linking)
+    Accessing hidden field Landroid/graphics/Insets;->top:I (light greylist, linking)
+    Accessing hidden field Landroid/graphics/Insets;->bottom:I (light greylist, linking)
+I/DecorView: createDecorCaptionView >> DecorView@702ce86[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+W/mples.detectio: Accessing hidden method Landroid/view/View;->computeFitSystemWindows(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z (light greylist, reflection)
+W/mples.detectio: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (light greylist, reflection)
+W/mples.detectio: Accessing hidden method Landroid/widget/TextView;->getTextDirectionHeuristic()Landroid/text/TextDirectionHeuristic; (light greylist, linking)
+D/OpenGLRenderer: Skia GL Pipeline
+W/tensorflow: YoloV4Classifier: red short sleeve top
+    YoloV4Classifier: orange short sleeve top
+W/tensorflow: YoloV4Classifier: yellow short sleeve top
+    YoloV4Classifier: green short sleeve top
+W/tensorflow: YoloV4Classifier: sky short sleeve top
+    YoloV4Classifier: blue short sleeve top
+W/tensorflow: YoloV4Classifier: purple short sleeve top
+    YoloV4Classifier: black short sleeve top
+    YoloV4Classifier: white short sleeve top
+W/tensorflow: YoloV4Classifier: brown short sleeve top
+    YoloV4Classifier: red long sleeve top
+    YoloV4Classifier: orange long sleeve top
+    YoloV4Classifier: yellow long sleeve top
+W/tensorflow: YoloV4Classifier: green long sleeve top
+    YoloV4Classifier: sky long sleeve top
+    YoloV4Classifier: blue long sleeve top
+W/tensorflow: YoloV4Classifier: purple long sleeve top
+    YoloV4Classifier: black long sleeve top
+    YoloV4Classifier: white long sleeve top
+W/tensorflow: YoloV4Classifier: brown long sleeve top
+    YoloV4Classifier: red short sleeve outwear
+    YoloV4Classifier: orange short sleeve outwear
+W/tensorflow: YoloV4Classifier: yellow short sleeve outwear
+    YoloV4Classifier: green short sleeve outwear
+    YoloV4Classifier: sky short sleeve outwear
+W/tensorflow: YoloV4Classifier: blue short sleeve outwear
+    YoloV4Classifier: purple short sleeve outwear
+    YoloV4Classifier: black short sleeve outwear
+W/tensorflow: YoloV4Classifier: white short sleeve outwear
+W/tensorflow: YoloV4Classifier: brown short sleeve outwear
+    YoloV4Classifier: red long sleeve outwear
+    YoloV4Classifier: orange long sleeve outwear
+W/tensorflow: YoloV4Classifier: yellow long sleeve outwear
+    YoloV4Classifier: green long sleeve outwear
+    YoloV4Classifier: sky long sleeve outwear
+W/tensorflow: YoloV4Classifier: blue long sleeve outwear
+    YoloV4Classifier: purple long sleeve outwear
+W/tensorflow: YoloV4Classifier: black long sleeve outwear
+    YoloV4Classifier: white long sleeve outwear
+    YoloV4Classifier: brown long sleeve outwear
+W/tensorflow: YoloV4Classifier: red vest
+    YoloV4Classifier: orange vest
+    YoloV4Classifier: yellow vest
+    YoloV4Classifier: green vest
+W/tensorflow: YoloV4Classifier: sky vest
+    YoloV4Classifier: blue vest
+    YoloV4Classifier: purple vest
+    YoloV4Classifier: black vest
+W/tensorflow: YoloV4Classifier: white vest
+    YoloV4Classifier: brown vest
+    YoloV4Classifier: red sling
+    YoloV4Classifier: orange sling
+W/tensorflow: YoloV4Classifier: yellow sling
+    YoloV4Classifier: green sling
+    YoloV4Classifier: sky sling
+    YoloV4Classifier: blue sling
+W/tensorflow: YoloV4Classifier: purple sling
+    YoloV4Classifier: black sling
+    YoloV4Classifier: white sling
+    YoloV4Classifier: brown sling
+W/tensorflow: YoloV4Classifier: red shorts
+    YoloV4Classifier: orange shorts
+    YoloV4Classifier: yellow shorts
+    YoloV4Classifier: green shorts
+W/tensorflow: YoloV4Classifier: sky shorts
+    YoloV4Classifier: blue shorts
+    YoloV4Classifier: purple shorts
+    YoloV4Classifier: black shorts
+W/tensorflow: YoloV4Classifier: white shorts
+    YoloV4Classifier: brown shorts
+    YoloV4Classifier: red trousers
+W/tensorflow: YoloV4Classifier: orange trousers
+    YoloV4Classifier: yellow trousers
+    YoloV4Classifier: green trousers
+    YoloV4Classifier: sky trousers
+W/tensorflow: YoloV4Classifier: blue trousers
+    YoloV4Classifier: purple trousers
+    YoloV4Classifier: black trousers
+W/tensorflow: YoloV4Classifier: white trousers
+    YoloV4Classifier: brown trousers
+    YoloV4Classifier: red skirt
+    YoloV4Classifier: orange skirt
+W/tensorflow: YoloV4Classifier: yellow skirt
+    YoloV4Classifier: green skirt
+    YoloV4Classifier: sky skirt
+W/tensorflow: YoloV4Classifier: blue skirt
+W/tensorflow: YoloV4Classifier: purple skirt
+    YoloV4Classifier: black skirt
+    YoloV4Classifier: white skirt
+    YoloV4Classifier: brown skirt
+W/tensorflow: YoloV4Classifier: red short sleeve dress
+    YoloV4Classifier: orange short sleeve dress
+W/tensorflow: YoloV4Classifier: yellow short sleeve dress
+    YoloV4Classifier: green short sleeve dress
+    YoloV4Classifier: sky short sleeve dress
+W/tensorflow: YoloV4Classifier: blue short sleeve dress
+    YoloV4Classifier: purple short sleeve dress
+    YoloV4Classifier: black short sleeve dress
+W/tensorflow: YoloV4Classifier: white short sleeve dress
+    YoloV4Classifier: brown short sleeve dress
+    YoloV4Classifier: red long sleeve dress
+W/tensorflow: YoloV4Classifier: orange long sleeve dress
+    YoloV4Classifier: yellow long sleeve dress
+    YoloV4Classifier: green long sleeve dress
+W/tensorflow: YoloV4Classifier: sky long sleeve dress
+    YoloV4Classifier: blue long sleeve dress
+    YoloV4Classifier: purple long sleeve dress
+    YoloV4Classifier: black long sleeve dress
+W/tensorflow: YoloV4Classifier: white long sleeve dress
+    YoloV4Classifier: brown long sleeve dress
+    YoloV4Classifier: red vest dress
+    YoloV4Classifier: orange vest dress
+    YoloV4Classifier: yellow vest dress
+W/tensorflow: YoloV4Classifier: green vest dress
+    YoloV4Classifier: sky vest dress
+    YoloV4Classifier: blue vest dress
+    YoloV4Classifier: purple vest dress
+    YoloV4Classifier: black vest dress
+W/tensorflow: YoloV4Classifier: white vest dress
+    YoloV4Classifier: brown vest dress
+    YoloV4Classifier: red sling dress
+    YoloV4Classifier: orange sling dress
+W/tensorflow: YoloV4Classifier: yellow sling dress
+    YoloV4Classifier: green sling dress
+    YoloV4Classifier: sky sling dress
+    YoloV4Classifier: blue sling dress
+    YoloV4Classifier: purple sling dress
+W/tensorflow: YoloV4Classifier: black sling dress
+    YoloV4Classifier: white sling dress
+W/tensorflow: YoloV4Classifier: brown sling dress
+I/tflite: Created TensorFlow Lite delegate for GPU.
+I/tflite: Initialized TensorFlow Lite runtime.
+I/tflite: Initialized OpenCL-based API.
+D/EmergencyMode: [EmergencyManager] android createPackageContext successful
+W/System: A resource failed to call close. 
+D/InputTransport: Input channel constructed: fd=69
+D/ViewRootImpl@1783d0f[MainActivity]: setView = DecorView@702ce86[MainActivity] TM=true MM=false
+D/ViewRootImpl@1783d0f[MainActivity]: stopped(false) old=false
+D/ViewRootImpl@1783d0f[MainActivity]: Relayout returned: old=[0,0][1080,2220] new=[0,0][1080,2220] result=0x7 surface={true 536701358080} changed=true
+I/ConfigStore: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+I/ConfigStore: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasHDRDisplay retrieved: 0
+I/OpenGLRenderer: Initialized EGL, version 1.4
+D/OpenGLRenderer: Swap behavior 2
+D/mali_winsys: EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000
+D/OpenGLRenderer: eglCreateWindowSurface = 0x7cf5f14100, 0x7cf5e4d010
+D/vndksupport: Loading /vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so from current namespace instead of sphal namespace.
+D/ViewRootImpl@1783d0f[MainActivity]: MSG_RESIZED: frame=[0,0][1080,2220] ci=[0,72][0,144] vi=[0,72][0,144] or=1
+D/ViewRootImpl@1783d0f[MainActivity]: MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager: prepareNavigationBarInfo() DecorView@702ce86[MainActivity]
+    getNavigationBarColor() -855310
+D/InputMethodManager: prepareNavigationBarInfo() DecorView@702ce86[MainActivity]
+    getNavigationBarColor() -855310
+V/InputMethodManager: Starting input: tba=org.tensorflow.lite.examples.detection ic=null mNaviBarColor -855310 mIsGetNaviBarColorSuccess true , NavVisible : true , NavTrans : false
+D/InputMethodManager: startInputInner - Id : 0
+I/InputMethodManager: startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport: Input channel constructed: fd=74
+D/InputMethodManager: prepareNavigationBarInfo() DecorView@702ce86[MainActivity]
+D/InputMethodManager: getNavigationBarColor() -855310
+V/InputMethodManager: Starting input: tba=org.tensorflow.lite.examples.detection ic=null mNaviBarColor -855310 mIsGetNaviBarColorSuccess true , NavVisible : true , NavTrans : false
+D/InputMethodManager: startInputInner - Id : 0
+D/ViewRootImpl@1783d0f[MainActivity]: ViewPostIme pointer 0
+D/ViewRootImpl@1783d0f[MainActivity]: ViewPostIme pointer 1
+W/ActivityThread: handleWindowVisibility: no activity for token android.os.BinderProxy@2e22771
+D/ViewRootImpl@1783d0f[MainActivity]: MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager: prepareNavigationBarInfo() DecorView@702ce86[MainActivity]
+    getNavigationBarColor() -855310
+D/tensorflow: CameraActivity: onCreate org.tensorflow.lite.examples.detection.DetectorActivity@1b6c4e2
+I/DecorView: createDecorCaptionView >> DecorView@1de8165[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+I/CameraManagerGlobal: Connecting to camera service
+D/VendorTagDescriptor: addVendorDescriptor: vendor tag id 3854507339 added
+I/tensorflow: CameraActivity: Camera API lv2?: false
+W/BottomSheetBehavior: BottomSheetBehavior now supports multiple callbacks. `setBottomSheetCallback()` removes all existing callbacks, including ones set internally by library authors, which may result in unintended behavior. This may change in the future. Please use `addBottomSheetCallback()` and `removeBottomSheetCallback()` instead to set your own callbacks.
+D/tensorflow: CameraActivity: onStart org.tensorflow.lite.examples.detection.DetectorActivity@1b6c4e2
+D/tensorflow: CameraActivity: onResume org.tensorflow.lite.examples.detection.DetectorActivity@1b6c4e2
+D/InputTransport: Input channel constructed: fd=83
+D/ViewRootImpl@7d2cd66[DetectorActivity]: setView = DecorView@1de8165[DetectorActivity] TM=true MM=false
+I/Choreographer: Skipped 34 frames!  The application may be doing too much work on its main thread.
+D/ViewRootImpl@7d2cd66[DetectorActivity]: Relayout returned: old=[0,0][1080,2220] new=[0,0][1080,2220] result=0x7 surface={true 536232030208} changed=true
+D/mali_winsys: EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000
+D/OpenGLRenderer: eglCreateWindowSurface = 0x7ce3077080, 0x7cd9eb7010
+W/mples.detectio: Accessing hidden field Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate; (light greylist, reflection)
+I/OpenGLRenderer: Davey! duration=796ms; Flags=1, IntendedVsync=164519035231357, Vsync=164519601898001, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=164519614516441, AnimationStart=164519614698902, PerformTraversalsStart=164519620061633, DrawStart=164519823827902, SyncQueued=164519828093633, SyncStart=164519828155094, IssueDrawCommandsStart=164519828225556, SwapBuffers=164519829287364, FrameCompleted=164519831362441, DequeueBufferDuration=291000, QueueBufferDuration=443000, 
+E/Camera_APM :: [APM]APM's Thread is started
+E/Camera_APM :: [APM] This app is forground app
+I/tensorflow: CameraConnectionFragment: Desired size: 640x480, min size: 480x480
+I/tensorflow: CameraConnectionFragment: Valid preview sizes: [1920x1080, 1440x1080, 1088x1088, 1280x720, 1056x704, 1024x768, 960x720, 720x720, 720x480, 640x480]
+I/tensorflow: CameraConnectionFragment: Rejected preview sizes: [352x288, 320x240, 256x144, 176x144]
+    CameraConnectionFragment: Exact size match found.
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+W/MapperHal: buffer descriptor with invalid usage bits 0x2000
+D/ViewRootImpl@7d2cd66[DetectorActivity]: MSG_RESIZED: frame=[0,0][1080,2220] ci=[0,72][0,144] vi=[0,72][0,144] or=1
+D/ViewRootImpl@7d2cd66[DetectorActivity]: MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager: prepareNavigationBarInfo() DecorView@1de8165[DetectorActivity]
+    getNavigationBarColor() -855310
+D/InputMethodManager: prepareNavigationBarInfo() DecorView@1de8165[DetectorActivity]
+    getNavigationBarColor() -855310
+V/InputMethodManager: Starting input: tba=org.tensorflow.lite.examples.detection ic=null mNaviBarColor -855310 mIsGetNaviBarColorSuccess true , NavVisible : true , NavTrans : false
+D/InputMethodManager: startInputInner - Id : 0
+I/InputMethodManager: startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport: Input channel constructed: fd=85
+D/InputTransport: Input channel destroyed: fd=74
+W/tensorflow: YoloV4Classifier: red short sleeve top
+W/tensorflow: YoloV4Classifier: orange short sleeve top
+    YoloV4Classifier: yellow short sleeve top
+    YoloV4Classifier: green short sleeve top
+    YoloV4Classifier: sky short sleeve top
+    YoloV4Classifier: blue short sleeve top
+    YoloV4Classifier: purple short sleeve top
+    YoloV4Classifier: black short sleeve top
+    YoloV4Classifier: white short sleeve top
+    YoloV4Classifier: brown short sleeve top
+    YoloV4Classifier: red long sleeve top
+    YoloV4Classifier: orange long sleeve top
+    YoloV4Classifier: yellow long sleeve top
+    YoloV4Classifier: green long sleeve top
+    YoloV4Classifier: sky long sleeve top
+W/tensorflow: YoloV4Classifier: blue long sleeve top
+    YoloV4Classifier: purple long sleeve top
+    YoloV4Classifier: black long sleeve top
+    YoloV4Classifier: white long sleeve top
+    YoloV4Classifier: brown long sleeve top
+    YoloV4Classifier: red short sleeve outwear
+    YoloV4Classifier: orange short sleeve outwear
+    YoloV4Classifier: yellow short sleeve outwear
+    YoloV4Classifier: green short sleeve outwear
+    YoloV4Classifier: sky short sleeve outwear
+    YoloV4Classifier: blue short sleeve outwear
+    YoloV4Classifier: purple short sleeve outwear
+    YoloV4Classifier: black short sleeve outwear
+    YoloV4Classifier: white short sleeve outwear
+W/tensorflow: YoloV4Classifier: brown short sleeve outwear
+    YoloV4Classifier: red long sleeve outwear
+    YoloV4Classifier: orange long sleeve outwear
+    YoloV4Classifier: yellow long sleeve outwear
+    YoloV4Classifier: green long sleeve outwear
+    YoloV4Classifier: sky long sleeve outwear
+    YoloV4Classifier: blue long sleeve outwear
+    YoloV4Classifier: purple long sleeve outwear
+    YoloV4Classifier: black long sleeve outwear
+    YoloV4Classifier: white long sleeve outwear
+    YoloV4Classifier: brown long sleeve outwear
+    YoloV4Classifier: red vest
+    YoloV4Classifier: orange vest
+    YoloV4Classifier: yellow vest
+W/tensorflow: YoloV4Classifier: green vest
+    YoloV4Classifier: sky vest
+    YoloV4Classifier: blue vest
+    YoloV4Classifier: purple vest
+    YoloV4Classifier: black vest
+    YoloV4Classifier: white vest
+    YoloV4Classifier: brown vest
+    YoloV4Classifier: red sling
+    YoloV4Classifier: orange sling
+    YoloV4Classifier: yellow sling
+    YoloV4Classifier: green sling
+    YoloV4Classifier: sky sling
+    YoloV4Classifier: blue sling
+    YoloV4Classifier: purple sling
+    YoloV4Classifier: black sling
+    YoloV4Classifier: white sling
+W/tensorflow: YoloV4Classifier: brown sling
+    YoloV4Classifier: red shorts
+    YoloV4Classifier: orange shorts
+    YoloV4Classifier: yellow shorts
+    YoloV4Classifier: green shorts
+    YoloV4Classifier: sky shorts
+    YoloV4Classifier: blue shorts
+    YoloV4Classifier: purple shorts
+    YoloV4Classifier: black shorts
+    YoloV4Classifier: white shorts
+    YoloV4Classifier: brown shorts
+    YoloV4Classifier: red trousers
+    YoloV4Classifier: orange trousers
+    YoloV4Classifier: yellow trousers
+    YoloV4Classifier: green trousers
+    YoloV4Classifier: sky trousers
+    YoloV4Classifier: blue trousers
+    YoloV4Classifier: purple trousers
+    YoloV4Classifier: black trousers
+W/tensorflow: YoloV4Classifier: white trousers
+    YoloV4Classifier: brown trousers
+    YoloV4Classifier: red skirt
+    YoloV4Classifier: orange skirt
+    YoloV4Classifier: yellow skirt
+    YoloV4Classifier: green skirt
+    YoloV4Classifier: sky skirt
+    YoloV4Classifier: blue skirt
+    YoloV4Classifier: purple skirt
+    YoloV4Classifier: black skirt
+    YoloV4Classifier: white skirt
+    YoloV4Classifier: brown skirt
+    YoloV4Classifier: red short sleeve dress
+    YoloV4Classifier: orange short sleeve dress
+    YoloV4Classifier: yellow short sleeve dress
+    YoloV4Classifier: green short sleeve dress
+    YoloV4Classifier: sky short sleeve dress
+W/tensorflow: YoloV4Classifier: blue short sleeve dress
+    YoloV4Classifier: purple short sleeve dress
+    YoloV4Classifier: black short sleeve dress
+    YoloV4Classifier: white short sleeve dress
+    YoloV4Classifier: brown short sleeve dress
+    YoloV4Classifier: red long sleeve dress
+    YoloV4Classifier: orange long sleeve dress
+    YoloV4Classifier: yellow long sleeve dress
+    YoloV4Classifier: green long sleeve dress
+    YoloV4Classifier: sky long sleeve dress
+    YoloV4Classifier: blue long sleeve dress
+    YoloV4Classifier: purple long sleeve dress
+    YoloV4Classifier: black long sleeve dress
+    YoloV4Classifier: white long sleeve dress
+    YoloV4Classifier: brown long sleeve dress
+W/tensorflow: YoloV4Classifier: red vest dress
+    YoloV4Classifier: orange vest dress
+    YoloV4Classifier: yellow vest dress
+    YoloV4Classifier: green vest dress
+    YoloV4Classifier: sky vest dress
+    YoloV4Classifier: blue vest dress
+    YoloV4Classifier: purple vest dress
+    YoloV4Classifier: black vest dress
+    YoloV4Classifier: white vest dress
+    YoloV4Classifier: brown vest dress
+    YoloV4Classifier: red sling dress
+    YoloV4Classifier: orange sling dress
+    YoloV4Classifier: yellow sling dress
+    YoloV4Classifier: green sling dress
+    YoloV4Classifier: sky sling dress
+    YoloV4Classifier: blue sling dress
+    YoloV4Classifier: purple sling dress
+    YoloV4Classifier: black sling dress
+    YoloV4Classifier: white sling dress
+W/tensorflow: YoloV4Classifier: brown sling dress
+I/tensorflow: DetectorActivity: Camera orientation relative to screen canvas: 90
+I/tensorflow: DetectorActivity: Initializing at size 640x480
+I/tensorflow: DetectorActivity: Preparing image 1 for detection in bg thread.
+W/System: A resource failed to call close. 
+I/tensorflow: DetectorActivity: Running detection on image 1
+W/libEGL: EGLNativeWindowType 0x7cf5e4d010 disconnect failed
+D/OpenGLRenderer: eglDestroySurface = 0x7cf5f14100, 0x7cf5e4d000
+D/ViewRootImpl@1783d0f[MainActivity]: Relayout returned: old=[0,0][1080,2220] new=[0,0][1080,2220] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@1783d0f[MainActivity]: stopped(true) old=false
+I/mples.detectio: Compiler allocated 4MB to compile void android.view.ViewRootImpl.performTraversals()
+E/CHECK: run: 1
+I/tensorflow: MultiBoxTracker: Processing 1 results from 1
+I/tensorflow: DetectorActivity: Preparing image 149 for detection in bg thread.
+I/tensorflow: DetectorActivity: Running detection on image 149
+Disconnected from the target VM, address: 'localhost:4071', transport: 'socket'

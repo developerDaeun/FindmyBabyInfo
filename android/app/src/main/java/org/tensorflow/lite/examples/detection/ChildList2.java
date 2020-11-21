@@ -1,0 +1,170 @@
+package org.tensorflow.lite.examples.detection;
+
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ChildList2 extends ToolBar {
+
+    private String id;
+    private TextView noInfo;    //childList size가 0인 경우 표시
+    private ListView listView;
+    private List<String> list=new ArrayList<>();
+    private ArrayAdapter<String> adapter;
+
+    private JSONObject jsonObject;
+    private JSONArray jsonArray;
+    private String TAG_JSON="childInfo", TAG_NAME="name",TAG_GENDER="gender", TAG_AGE="age",TAG_CNO="cno", TAG_PATH="path";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        final Intent getIntent=getIntent();
+        id=getIntent.getStringExtra("id"); //MainMenu 액티비티에서 id값 받아옴
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_child_list);
+
+        findById();
+
+        //listview Item 클릭 시
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long itemId) {
+                try{
+                    JSONObject item=jsonArray.getJSONObject(position);
+                    String name=item.getString(TAG_NAME);
+                    String gender=item.getString(TAG_GENDER);
+                    String age=item.getString(TAG_AGE);
+                    String cno=item.getString(TAG_CNO);
+                    String path=item.getString(TAG_PATH);
+
+                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                    intent.putExtra("id", id);
+                    intent.putExtra("name", name);
+                    intent.putExtra("gender", gender);
+                    intent.putExtra("age", age);
+                    intent.putExtra("cno", cno);
+                    intent.putExtra("path", path);
+                    startActivity(intent);
+                }catch(JSONException e){
+                    e.printStackTrace();
+                    Log.e("json 오류", e.toString());
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Log.e("parse 오류", e.toString());
+                }
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        list.clear();
+        String data="id="+id;
+        AndroidToPhp atp=new AndroidToPhp();
+        atp.execute("/ChildList.php",data);
+    }
+
+    private void findById(){
+        noInfo=(TextView)findViewById(R.id.noInfo);
+        listView=(ListView)findViewById(R.id.listView);
+        adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
+    }
+
+    //listview에 항목을 추가`하는 함수
+    private void addList(String result){
+        try{
+            jsonObject=new JSONObject(result);
+            jsonArray=jsonObject.getJSONArray(TAG_JSON);
+            for(int i=0;i<jsonArray.length();i++){
+                JSONObject item=jsonArray.getJSONObject(i);
+                String name=item.getString(TAG_NAME);
+                list.add(name);
+            }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            }).start();
+        }catch(JSONException e){
+            e.printStackTrace();
+            Log.e("json 오류", e.toString());
+        }
+    }
+
+    class AndroidToPhp extends AsyncTask<String, Void, String> { //<doInBackground 매개변수 자료형, onProgressUpdate 자료형, onPostExecute 자료형>
+
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog= ProgressDialog.show(ChildList2.this,"불러오는 중입니다.",null,true,true);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            progressDialog.dismiss();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            RequestHandler rh=new RequestHandler();
+            String result=rh.sendPostRequest(strings[0], strings[1]);
+            if(result.equals("NO_DATA")){   //등록된 아이 데이터가 없는 경우
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                noInfo.setVisibility(View.VISIBLE);
+                            }
+                        });
+                    }
+                }).start();
+            }
+            else{   //등록된 데이터가 있는 경우
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                noInfo.setVisibility(View.GONE);
+                            }
+                        });
+                    }
+                }).start();
+                addList(result);
+            }
+            return result;
+        }
+
+    }
+}
