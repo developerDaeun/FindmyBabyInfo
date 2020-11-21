@@ -143,8 +143,16 @@ bbox location: recognition.location
 confidence: recognition.detectionConfidence
 ```
 
+### SQL Info
+```bash
+start bitnami -> cmd 창에서 mysql -u root -p
+use mydb->비밀번호 입력 : 민지300
+```
+
 ### Android
-start bitnami -> cmd 창에서 mysql -u root -p -> use mydb->비밀번호 입력 : 민지300
+```bash
+Request Handler.java : private String IP="http://<IP address>";
+```
 
 
 ### Evaluate on COCO 2017 Dataset
