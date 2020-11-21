@@ -151,7 +151,7 @@ use mydb->비밀번호 입력 : 민지300
 
 ### Android
 ```bash
-Request Handler.java : private String IP="http://<IP address>";
+RequestHandler.java : private String IP="http://<IP address>";
 ```
 
 
