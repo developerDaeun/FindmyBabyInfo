@@ -146,7 +146,8 @@ confidence: recognition.detectionConfidence
 ### SQL Info
 ```bash
 start bitnami -> cmd 창에서 mysql -u root -p
-use mydb->비밀번호 입력 : 민지300
+비밀번호 입력 : 민지300
+use mydb -> select
 ```
 
 ### Android
