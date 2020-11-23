@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -18,6 +19,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -278,7 +280,12 @@ public class ChildRegistraion extends ToolBar {
                         AlertDialog.Builder dlg=new AlertDialog.Builder(ChildRegistraion.this);
                         dlg.setTitle("등록 완료");
                         dlg.setMessage("등록이 완료되었습니다");
-                        dlg.setPositiveButton("확인",null);
+                        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
                         dlg.show();
                     }
                 });

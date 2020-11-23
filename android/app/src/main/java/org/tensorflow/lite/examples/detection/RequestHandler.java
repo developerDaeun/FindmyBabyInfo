@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class RequestHandler {
 
-    private String IP="http://192.168.0.87";
+    private String IP="http://172.30.1.38";
     StringBuilder sb=new StringBuilder();
 
     public String sendPostRequest(String url, String data){

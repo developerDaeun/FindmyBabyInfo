@@ -37,7 +37,7 @@ public class ChildList2 extends ToolBar {
         id=getIntent.getStringExtra("id"); //MainMenu 액티비티에서 id값 받아옴
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_child_list);
+        setContentView(R.layout.activity_child_list2);
 
         findById();
 
