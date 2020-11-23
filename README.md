@@ -79,7 +79,7 @@ python convert_trt.py --weights ./checkpoints/yolov4.tf --quantize_mode float16 
 ```
 ### Demo test on Android
 ```bash
-Bundle Sink OK
+Bundle Sink --> File > Project Sink
 ```
 
 If exist 'import package --' problems,
@@ -131,6 +131,8 @@ class name: result.getTitle()
 bbox location: result.getLocation()
 confidence: result.getConfidence()
 from Classifier.java
+
+image path: this.sourceBitmap
 ```
 
 * Webcam
@@ -140,6 +142,19 @@ class name: recognition.title
 bbox location: recognition.location
 confidence: recognition.detectionConfidence
 ```
+
+### SQL Info
+```bash
+start bitnami -> cmd 창에서 mysql -u root -p
+비밀번호 입력 : 민지300
+use mydb -> select
+```
+
+### Android
+```bash
+RequestHandler.java : private String IP="http://<IP address>";
+```
+
 
 ### Evaluate on COCO 2017 Dataset
 ```bash
