@@ -114,6 +114,8 @@ In android/app/src/main/assets/,
 ## Insert your custom .tflite
 ## Create your custom names file   ex)YourCustom.txt
 ```
+If you use our tflite file, go here : https://drive.google.com/file/d/11j3FdTVsJ8hxFA-s-RsfEzoZX3ZKiBnB/view?usp=sharing
+
 
 Click Edit > Find > Find in Path...
 Change All
@@ -145,9 +147,9 @@ confidence: recognition.detectionConfidence
 
 ### SQL Info
 ```bash
-start bitnami -> cmd 창에서 mysql -u root -p
-비밀번호 입력 : 민지300
-use mydb -> select
+검색 -> start bitnami -> cmd 창에서 mysql -u root -p
+pw : 민지300
+use mydb -> select ---
 ```
 
 ### Android
